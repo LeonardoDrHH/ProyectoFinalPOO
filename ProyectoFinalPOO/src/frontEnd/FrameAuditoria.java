@@ -257,7 +257,7 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-   new FrameAuditoria().setVisible(true); this.dispose();
+   new FramePrincipal().setVisible(true); this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
