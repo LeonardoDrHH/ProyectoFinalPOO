@@ -200,6 +200,11 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
         btnEditar.getAccessibleContext().setAccessibleName("");
 
         btnRegresar.setBackground(new java.awt.Color(26, 15, 43));
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -250,6 +255,10 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+   new FrameAuditoria().setVisible(true); this.dispose();
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
