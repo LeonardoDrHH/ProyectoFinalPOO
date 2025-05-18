@@ -133,6 +133,11 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
         btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnAgregar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnAgregar.setVerifyInputWhenFocusTarget(false);
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         btnEditar.setBackground(new java.awt.Color(61, 41, 99));
         btnEditar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
@@ -349,6 +354,10 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
     private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonConsultarActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+   new FrameAuditoriaAgregar().setVisible(true); this.dispose();
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**
      * @param args the command line arguments
