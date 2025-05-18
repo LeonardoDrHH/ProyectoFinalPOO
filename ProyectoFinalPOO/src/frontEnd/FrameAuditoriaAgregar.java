@@ -15,8 +15,7 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
      */
     public FrameAuditoriaAgregar() {
         initComponents();
-        setIcono("/Imagenes/icons8-delete-30.png", btnGuardar);
-         
+       
     }
 
     /**
@@ -42,7 +41,6 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
         jTextField2 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        btnGuardar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -126,10 +124,6 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        btnGuardar.setBackground(new java.awt.Color(61, 41, 99));
-        btnGuardar.setForeground(new java.awt.Color(229, 218, 255));
-        btnGuardar.setText("Guardar");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -163,10 +157,6 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(100, 100, 100))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(btnGuardar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,9 +182,7 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
-                .addComponent(btnGuardar)
-                .addGap(36, 36, 36))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -289,7 +277,6 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBox;
-    private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnRegresar1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
