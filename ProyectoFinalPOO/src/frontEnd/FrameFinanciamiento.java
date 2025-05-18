@@ -14,7 +14,9 @@ public class FrameFinanciamiento extends javax.swing.JFrame implements Interface
      * Creates new form FrameFinanciamiento
      */
     public FrameFinanciamiento() {
+        this.setUndecorated(true);
         initComponents();
+        setLocationRelativeTo(null);
         
         setBordeRedondeado(btnEnviar, 8);
     }

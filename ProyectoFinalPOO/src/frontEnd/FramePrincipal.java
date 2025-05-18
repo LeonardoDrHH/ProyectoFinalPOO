@@ -14,7 +14,10 @@ public class FramePrincipal extends javax.swing.JFrame implements InterfaceDisen
      * Creates new form NewJFrame
      */
     public FramePrincipal() {
+        this.setUndecorated(true);
         initComponents();
+        setLocationRelativeTo(null);
+        
         setIcono("/Imagenes/icons8-exit-30.png", jButtonSalir);
         
         setBordeRedondeado(jButton2, 80);

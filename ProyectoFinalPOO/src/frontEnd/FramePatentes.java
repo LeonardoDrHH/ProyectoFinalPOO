@@ -14,7 +14,9 @@ public class FramePatentes extends javax.swing.JFrame {
      * Creates new form FramePatentes
      */
     public FramePatentes() {
+        this.setUndecorated(true);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
