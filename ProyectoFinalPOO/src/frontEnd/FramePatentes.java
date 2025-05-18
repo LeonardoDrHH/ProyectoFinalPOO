@@ -77,9 +77,9 @@ public class FramePatentes extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(229, 218, 255));
         jLabel4.setText("Nombre del solicitante(es)");
 
-        btnEnviar.setBackground(new java.awt.Color(229, 218, 255));
+        btnEnviar.setBackground(new java.awt.Color(61, 41, 99));
         btnEnviar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        btnEnviar.setForeground(new java.awt.Color(61, 41, 99));
+        btnEnviar.setForeground(new java.awt.Color(229, 218, 255));
         btnEnviar.setText("Enviar");
         btnEnviar.setBorder(null);
 

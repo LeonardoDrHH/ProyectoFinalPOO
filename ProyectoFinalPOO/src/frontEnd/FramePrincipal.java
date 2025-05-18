@@ -60,7 +60,7 @@ public class FramePrincipal extends javax.swing.JFrame implements InterfaceDisen
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButton2.setForeground(new java.awt.Color(196, 163, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-tasklist-64.png"))); // NOI18N
-        jButton2.setText("AUDITORï¿½AS");
+        jButton2.setText("AUDITORÍAS");
         jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton2.setBorderPainted(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -100,7 +100,7 @@ public class FramePrincipal extends javax.swing.JFrame implements InterfaceDisen
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jButton4.setForeground(new java.awt.Color(196, 163, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icons8-guarantee-64.png"))); // NOI18N
-        jButton4.setText("<html>GESTIï¿½N DE <br>PATENTES</html>");
+        jButton4.setText("<html>GESTIÓN DE <br>PATENTES</html>");
         jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jButton4.setBorderPainted(false);
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -157,7 +157,7 @@ public class FramePrincipal extends javax.swing.JFrame implements InterfaceDisen
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                                .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,7 +167,7 @@ public class FramePrincipal extends javax.swing.JFrame implements InterfaceDisen
                                 .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(15, 15, 15))
+                .addGap(21, 21, 21))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

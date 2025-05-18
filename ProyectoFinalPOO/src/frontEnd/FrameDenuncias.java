@@ -66,7 +66,7 @@ public class FrameDenuncias extends javax.swing.JFrame implements InterfaceDisen
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(229, 218, 255));
-        jLabel2.setText("Descripciï¿½n");
+        jLabel2.setText("Descripción");
 
         jTextArea1.setBackground(new java.awt.Color(61, 41, 99));
         jTextArea1.setColumns(20);
@@ -94,9 +94,9 @@ public class FrameDenuncias extends javax.swing.JFrame implements InterfaceDisen
         jLabel5.setForeground(new java.awt.Color(229, 218, 255));
         jLabel5.setText("Presuntas infracciones");
 
-        btnEnviar.setBackground(new java.awt.Color(229, 218, 255));
+        btnEnviar.setBackground(new java.awt.Color(61, 41, 99));
         btnEnviar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        btnEnviar.setForeground(new java.awt.Color(61, 41, 99));
+        btnEnviar.setForeground(new java.awt.Color(229, 218, 255));
         btnEnviar.setText("Enviar");
         btnEnviar.setBorder(null);
 
