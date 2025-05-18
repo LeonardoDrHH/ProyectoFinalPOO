@@ -4,7 +4,9 @@
  */
 package backEnd.CRUD;
 
-// Crear / Agregar
+
 public interface Create<T> {
-    void agregar(T obj);
+  
+    
+    String agregar(T obj); // Devuelve una cadena con los datos ingresados
 }

@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package backEnd.Auditoria;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Auditoria {
@@ -12,7 +13,7 @@ public class Auditoria {
     private String responsable;
     private String descripcion;
 
-    public Auditoria(int id, Date fechaCreacion, Estado estado, String responsable, String descripcion) {
+    public Auditoria(int id, String responsable, String descripcion, Estado estado, LocalDate minusDays) {
         this.id = id;
         this.fechaCreacion = fechaCreacion;
         this.estado = estado;

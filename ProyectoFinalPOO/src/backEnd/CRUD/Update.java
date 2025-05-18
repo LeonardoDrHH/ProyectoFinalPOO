@@ -4,11 +4,7 @@
  */
 package backEnd.CRUD;
 
-/**
- *
- * @author DANIEL
- */
-// Actualizar
+// Interfaz para actualizar objetos
 public interface Update<T> {
-    boolean actualizar(int id, T objActualizado);
+    boolean actualizar(int index, T nuevoObj);
 }
