@@ -13,7 +13,7 @@ public class Auditoria {
     private String responsable;
     private String descripcion;
 
-    public Auditoria(int id, String responsable, String descripcion, Estado estado, LocalDate minusDays) {
+    public Auditoria(int id, LocalDate minusDays, Estado estado, String responsable, String descripcion) {
         this.id = id;
         this.fechaCreacion = fechaCreacion;
         this.estado = estado;

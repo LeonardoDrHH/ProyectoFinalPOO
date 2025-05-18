@@ -3,17 +3,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package frontEnd;
+
+
+import backEnd.Auditoria.AdminAuditoria;
+import backEnd.Auditoria.Auditoria;
+import backEnd.Auditoria.Estado;
+
+import javax.swing.JOptionPane;    // Para mostrar mensajes emergentes
+import javax.swing.JTextField;     // Si usas JTextFields
+import javax.swing.JComboBox;      // Si usas JComboBox
+import javax.swing.JButton;  
 import backEnd.InterfaceDisenio;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 /**
  *
  * @author lrobl
  */
 public class FrameAuditoriaAgregar extends javax.swing.JFrame implements InterfaceDisenio  {
+    private AdminAuditoria admin = new AdminAuditoria() {
+        @Override
+        public Auditoria buscarPorId(int id) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+    };
 
     /**
      * Creates new form FrameAuditoriaAgregar
      */
     public FrameAuditoriaAgregar() {
+
         initComponents();
        
     }
@@ -33,14 +52,16 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
         jLabel1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnRegresar1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        txtFecha = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        ComboBox = new javax.swing.JComboBox<>();
+        comboEstado = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtResponsable = new javax.swing.JTextField();
+        txtDescripcion = new javax.swing.JTextField();
+        btnAgregar = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -86,22 +107,27 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTextField1.setBackground(new java.awt.Color(61, 41, 99));
-        jTextField1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(229, 218, 255));
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtFecha.setBackground(new java.awt.Color(61, 41, 99));
+        txtFecha.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
+        txtFecha.setForeground(new java.awt.Color(229, 218, 255));
+        txtFecha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(229, 218, 255));
         jLabel2.setText("Estado de la auditoria:");
 
-        ComboBox.setBackground(new java.awt.Color(61, 41, 99));
-        ComboBox.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
-        ComboBox.setForeground(new java.awt.Color(229, 218, 255));
-        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Pendiente", "Aprobada", "Rechazada" }));
-        ComboBox.addActionListener(new java.awt.event.ActionListener() {
+        comboEstado.setBackground(new java.awt.Color(61, 41, 99));
+        comboEstado.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        comboEstado.setForeground(new java.awt.Color(229, 218, 255));
+        comboEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pendientes", "Aprobadas", "Rechazadas" }));
+        comboEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboBoxActionPerformed(evt);
+                comboEstadoActionPerformed(evt);
             }
         });
 
@@ -113,16 +139,53 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
         jLabel5.setForeground(new java.awt.Color(229, 218, 255));
         jLabel5.setText("Descripción de la auditoría:");
 
-        jTextField2.setBackground(new java.awt.Color(61, 41, 99));
-        jTextField2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(229, 218, 255));
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtResponsable.setBackground(new java.awt.Color(61, 41, 99));
+        txtResponsable.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
+        txtResponsable.setForeground(new java.awt.Color(229, 218, 255));
+        txtResponsable.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtResponsable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtResponsableActionPerformed(evt);
+            }
+        });
 
-        jTextArea1.setBackground(new java.awt.Color(61, 41, 99));
-        jTextArea1.setColumns(20);
-        jTextArea1.setForeground(new java.awt.Color(229, 218, 255));
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtDescripcion.setBackground(new java.awt.Color(61, 41, 99));
+        txtDescripcion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
+        txtDescripcion.setForeground(new java.awt.Color(229, 218, 255));
+        txtDescripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtDescripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDescripcionActionPerformed(evt);
+            }
+        });
+
+        btnAgregar.setBackground(new java.awt.Color(61, 41, 99));
+        btnAgregar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
+        btnAgregar.setForeground(new java.awt.Color(229, 218, 255));
+        btnAgregar.setText("<html>Guardar<html>");
+        btnAgregar.setBorderPainted(false);
+        btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnAgregar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnAgregar.setVerifyInputWhenFocusTarget(false);
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(229, 218, 255));
+        jLabel6.setText("ID");
+
+        txtId.setBackground(new java.awt.Color(61, 41, 99));
+        txtId.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
+        txtId.setForeground(new java.awt.Color(229, 218, 255));
+        txtId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIdActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -137,52 +200,68 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
                         .addGap(19, 19, 19)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField2))
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtDescripcion))
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGap(40, 40, 40)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel1))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField1)
-                                            .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(txtResponsable)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(74, 74, 74)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 35, Short.MAX_VALUE)))))
                 .addGap(100, 100, 100))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(comboEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(107, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(txtResponsable, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -201,7 +280,7 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 112, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(120, 120, 120))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -232,13 +311,54 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxActionPerformed
+    private void comboEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEstadoActionPerformed
 
-    }//GEN-LAST:event_ComboBoxActionPerformed
+    }//GEN-LAST:event_comboEstadoActionPerformed
 
     private void btnRegresar1btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar1btnRegresarActionPerformed
-        new FramePrincipal().setVisible(true); this.dispose();
+        new FrameAuditoria().setVisible(true); this.dispose();
     }//GEN-LAST:event_btnRegresar1btnRegresarActionPerformed
+
+    private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaActionPerformed
+
+    private void txtResponsableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtResponsableActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtResponsableActionPerformed
+
+    private void txtDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDescripcionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDescripcionActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+ try {
+        int id = Integer.parseInt(txtId.getText());
+        String responsable = txtResponsable.getText();
+        Estado estado = Estado.valueOf(comboEstado.getSelectedItem().toString());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate fecha = LocalDate.parse(txtFecha.getText(), formatter);
+        String descripcion = txtDescripcion.getText();
+
+        Auditoria nuevaAuditoria = new Auditoria(id, fecha, estado ,responsable, descripcion);
+        String mensaje = admin.agregar(nuevaAuditoria);
+
+        JOptionPane.showMessageDialog(this, mensaje);
+
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+    }  
+        txtId.setText("");
+        txtResponsable.setText("");
+        comboEstado.setSelectedIndex(0); // o -1 si no quieres nada seleccionado
+        txtFecha.setText("");
+        txtDescripcion.setText("");
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -276,20 +396,22 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> ComboBox;
+    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnRegresar1;
+    private javax.swing.JComboBox<String> comboEstado;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtDescripcion;
+    private javax.swing.JTextField txtFecha;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtResponsable;
     // End of variables declaration//GEN-END:variables
 }
