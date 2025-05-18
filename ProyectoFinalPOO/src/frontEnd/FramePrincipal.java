@@ -233,7 +233,7 @@ public class FramePrincipal extends javax.swing.JFrame implements InterfaceDisen
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-        // TODO add your handling code here:
+       System.exit(0);
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     /**
