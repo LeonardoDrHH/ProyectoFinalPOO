@@ -13,7 +13,7 @@ import javax.swing.border.LineBorder;
  */
 
 public interface InterfaceDisenio {
-    //Método para autoajustar imagenes dentro de un jButton.
+    //Mï¿½todo para autoajustar imagenes dentro de un jButton.
     default void setIcono(String url, JButton boton) {
         ImageIcon icon = new ImageIcon(getClass().getResource(url));
         int ancho = boton.getWidth();
@@ -24,7 +24,7 @@ public interface InterfaceDisenio {
     }
     
     
-    //Método para autoajustar imagenes dentro de un jLabel.
+    //Mï¿½todo para autoajustar imagenes dentro de un jLabel.
     default void setIcono(String url, JLabel etiqueta) {
         ImageIcon icon = new ImageIcon(getClass().getResource(url));
         int ancho = etiqueta.getWidth();
@@ -35,12 +35,12 @@ public interface InterfaceDisenio {
     }
     
     
-    //Método para darle borde redondeado a los objetos que utilicemos.
+    //Mï¿½todo para darle borde redondeado a los objetos que utilicemos.
     default void setBordeRedondeado(JComponent componente, int radio) {
     componente.setBorder(new LineBorder(Color.BLACK, 1, true) {
         @Override
         public Insets getBorderInsets(Component c) {
-            return new Insets(1, 1, 1, 1); // No modifica tamaño
+            return new Insets(1, 1, 1, 1); // No modifica tamaï¿½o
         }
 
         @Override
