@@ -89,7 +89,7 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
         ComboBox.setBackground(new java.awt.Color(61, 41, 99));
         ComboBox.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         ComboBox.setForeground(new java.awt.Color(229, 218, 255));
-        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas", "Pendientes", "Aprobadas", "Rechazadas" }));
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Todas", "Pendientes", "Aprobadas", "Rechazadas" }));
         ComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboBoxActionPerformed(evt);
