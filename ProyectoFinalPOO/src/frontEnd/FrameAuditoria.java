@@ -82,14 +82,14 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
 
         jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(229, 218, 255));
-        jLabel3.setText("AUDITORï¿½AS");
+        jLabel3.setText("AUDITORÍAS");
 
         jPanel2.setBackground(new java.awt.Color(42, 35, 67));
 
         ComboBox.setBackground(new java.awt.Color(61, 41, 99));
         ComboBox.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         ComboBox.setForeground(new java.awt.Color(229, 218, 255));
-        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas", "Pendientes", "Aprobadas", " " }));
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todas", "Pendientes", "Aprobadas", "Rechazadas" }));
         ComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboBoxActionPerformed(evt);
@@ -105,14 +105,14 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jListAuditorias.setBorder(null); // ? ï¿½ESTO es lo que elimina el borde!
+        jListAuditorias.setBorder(null); // ? ¡ESTO es lo que elimina el borde!
         jListAuditorias.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(jListAuditorias);
 
         btnEliminar.setBackground(new java.awt.Color(61, 41, 99));
         btnEliminar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(229, 218, 255));
-        btnEliminar.setText("<html>Eliminar<br>Auditorï¿½a<html>");
+        btnEliminar.setText("<html>Eliminar<br>Auditoría<html>");
         btnEliminar.setBorderPainted(false);
 
         btnConsultar.setBackground(new java.awt.Color(61, 41, 99));
@@ -128,7 +128,7 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
         btnAgregar.setBackground(new java.awt.Color(61, 41, 99));
         btnAgregar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         btnAgregar.setForeground(new java.awt.Color(229, 218, 255));
-        btnAgregar.setText("<html>Agregar<br>Auditorï¿½a<html>");
+        btnAgregar.setText("<html>Agregar<br>Auditoría<html>");
         btnAgregar.setBorderPainted(false);
         btnAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnAgregar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -137,7 +137,7 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
         btnEditar.setBackground(new java.awt.Color(61, 41, 99));
         btnEditar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(229, 218, 255));
-        btnEditar.setText("<html>Editar<br>Auditorï¿½a<html>");
+        btnEditar.setText("<html>Editar<br>Auditoría<html>");
         btnEditar.setBorderPainted(false);
         btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnEditar.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);

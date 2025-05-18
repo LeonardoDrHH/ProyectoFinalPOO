@@ -215,7 +215,7 @@
                     <StringItem index="0" value="Todas"/>
                     <StringItem index="1" value="Pendientes"/>
                     <StringItem index="2" value="Aprobadas"/>
-                    <StringItem index="3" value=" "/>
+                    <StringItem index="3" value="Rechazadas"/>
                   </StringArray>
                 </Property>
               </Properties>
