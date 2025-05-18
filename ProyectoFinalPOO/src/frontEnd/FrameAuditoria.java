@@ -19,7 +19,7 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
     public FrameAuditoria() {
         initComponents();
         SwingUtilities.invokeLater(() -> {
-         
+        setLocationRelativeTo(null);
         //Imagenes    
         setIcono("/Imagenes/icons8-add-new-30.png", jButtonAgregar);
         setIcono("/Imagenes/icons8-edit-32.png", jButtonEditar);
