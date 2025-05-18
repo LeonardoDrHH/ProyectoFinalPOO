@@ -5,6 +5,7 @@
 package backEnd;
 import javax.swing.*;
 import java.awt.*;
+import java.net.URL;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 /**
@@ -26,13 +27,18 @@ public interface InterfaceDisenio {
     
     //Mï¿½todo para autoajustar imagenes dentro de un jLabel.
     default void setIcono(String url, JLabel etiqueta) {
-        ImageIcon icon = new ImageIcon(getClass().getResource(url));
-        int ancho = etiqueta.getWidth();
-        int alto = etiqueta.getHeight();
-
-        Icon icono = new ImageIcon(icon.getImage().getScaledInstance(ancho, alto, Image.SCALE_SMOOTH));
-        etiqueta.setIcon(icono);
+    URL recurso = getClass().getResource(url);
+    if (recurso == null) {
+        System.err.println("Imagen no encontrada: " + url);
+        return;
     }
+    ImageIcon icon = new ImageIcon(recurso);
+    int ancho = etiqueta.getWidth();
+    int alto = etiqueta.getHeight();
+    Icon icono = new ImageIcon(icon.getImage().getScaledInstance(ancho, alto, Image.SCALE_SMOOTH));
+    etiqueta.setIcon(icono);
+}
+
     
     
     //Mï¿½todo para darle borde redondeado a los objetos que utilicemos.
@@ -50,7 +56,7 @@ public interface InterfaceDisenio {
     });
     }
     
-    
+    //Método para alternar colores en la lista
     static void aplicarColoresAlternos(JList<?> list) {
         list.setCellRenderer(new DefaultListCellRenderer() {
             @Override
