@@ -47,7 +47,6 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
         jTextArea2 = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        btnEnviar1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -167,7 +166,7 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(0, 16, Short.MAX_VALUE))
         );
 
@@ -187,17 +186,6 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
         jTextField2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(229, 218, 255));
         jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
-
-        btnEnviar1.setBackground(new java.awt.Color(61, 41, 99));
-        btnEnviar1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        btnEnviar1.setForeground(new java.awt.Color(229, 218, 255));
-        btnEnviar1.setText("Enviar");
-        btnEnviar1.setBorder(null);
-        btnEnviar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEnviar1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -220,9 +208,7 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
                                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(129, 129, 129)
-                        .addComponent(btnEnviar1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
+                        .addGap(190, 190, 190)
                         .addComponent(btnFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(33, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,9 +237,7 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEnviar1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(26, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -316,10 +300,6 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
     private void btnRegresar1btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar1btnRegresarActionPerformed
         new FramePrincipal().setVisible(true); this.dispose();
     }//GEN-LAST:event_btnRegresar1btnRegresarActionPerformed
-
-    private void btnEnviar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnEnviar1ActionPerformed
     //knj
     /**
      * @param args the command line arguments
@@ -360,7 +340,6 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEnviar1;
     private javax.swing.JButton btnFactura;
     private javax.swing.JButton btnRegresar1;
     private javax.swing.JButton jButton1;
