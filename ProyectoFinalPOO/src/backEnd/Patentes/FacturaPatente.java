@@ -4,11 +4,13 @@
  */
 package backEnd.Patentes;
 
+import java.util.Date;
+
 /**
  *
  * @author lrobl
  */
-public class FacturaPatente {
+public class FacturaPatente extends Patentes {
     private static int contador = 1;
     private int numeroFactura;
     private String horaFactura;
@@ -16,13 +18,22 @@ public class FacturaPatente {
     private String nombreProducto;
     private String descripcionTecnica;
 
-    public FacturaPatente(int numeroFactura, String horaFactura, String nombreSolicitante, String nombreProducto, String descripcionTecnica) {
-        this.numeroFactura = contador++;
+    public FacturaPatente(String nomPro, String descripcionTec, String nomSolicitante, Date fechaSoli) {
+        super(nomPro, descripcionTec, nomSolicitante, fechaSoli);
+    }
+
+    public FacturaPatente(int numeroFactura, String horaFactura, String nombreSolicitante, String nombreProducto, String descripcionTecnica, String nomPro, String descripcionTec, String nomSolicitante, Date fechaSoli) {
+        super(nomPro, descripcionTec, nomSolicitante, fechaSoli);
+        this.numeroFactura = numeroFactura;
         this.horaFactura = horaFactura;
         this.nombreSolicitante = nombreSolicitante;
         this.nombreProducto = nombreProducto;
         this.descripcionTecnica = descripcionTecnica;
     }
+    
+    
+
+
 
     
     public String getHoraFactura() {
