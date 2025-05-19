@@ -4,19 +4,24 @@
  */
 package frontEnd;
 
+import backEnd.Auditoria.AdminAuditoria;
+import backEnd.Auditoria.AdminAuditoriaBinaria;
 import backEnd.Auditoria.Auditoria;
 import backEnd.Auditoria.Estado;
 import backEnd.InterfaceDisenio;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.util.List;
+import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.*;
 /**
  *
  * @author lrobl
  */
 public class FrameAuditoriaEditar extends javax.swing.JFrame implements InterfaceDisenio{
-
+    private AdminAuditoria admin; 
 
     /**
      * Creates new form FrameEditarAuditoria
@@ -25,6 +30,7 @@ public class FrameAuditoriaEditar extends javax.swing.JFrame implements Interfac
         this.setUndecorated(true);
         initComponents();
         setLocationRelativeTo(null);
+        admin = new AdminAuditoriaBinaria();
         
         
         txtFecha.setEnabled(false);
@@ -370,11 +376,76 @@ public class FrameAuditoriaEditar extends javax.swing.JFrame implements Interfac
     }//GEN-LAST:event_txtResponsableActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+try {
+        int id = Integer.parseInt(txtId.getText());
+        Auditoria a = admin.buscarPorId(id);
 
+        if (a != null) {
+            // Cargar datos en los campos
+            txtResponsable.setText(a.getResponsable());
+            txtDescripcion.setText(a.getDescripcion());
+            comboEstado.setSelectedItem(a.getEstado().toString());
+            txtFecha.setText(a.getFechaCreacion().toString());
+
+            // Habilitar campos para editar
+            txtResponsable.setEnabled(true);
+            txtDescripcion.setEnabled(true);
+            comboEstado.setEnabled(true);
+            // La fecha normalmente no se edita, si quieres que sí, pon true
+            txtFecha.setEnabled(false);
+
+            // Habilitar botón guardar
+            btnGuardar.setEnabled(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "No se encontró auditoría con ID " + id);
+            // Opcional: limpiar campos y deshabilitar botón guardar
+            txtResponsable.setText("");
+            txtDescripcion.setText("");
+            txtFecha.setText("");
+            comboEstado.setSelectedIndex(0);
+            txtResponsable.setEnabled(false);
+            txtDescripcion.setEnabled(false);
+            comboEstado.setEnabled(false);
+            btnGuardar.setEnabled(false);
+        }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "Por favor ingrese un ID válido.");
+    }
+
+        
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        
+    try {
+        int id = Integer.parseInt(txtId.getText());
+        String responsable = txtResponsable.getText();
+        String descripcion = txtDescripcion.getText();
+        Estado estado = Estado.valueOf(comboEstado.getSelectedItem().toString());
+        LocalDate fecha = LocalDate.parse(txtFecha.getText()); // Ajusta formato si es necesario
+
+        Auditoria aModificada = new Auditoria(id, fecha, estado, responsable, descripcion);
+
+        // Buscar índice para actualizar
+        List<Auditoria> lista = admin.listar();
+        int index = -1;
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getId() == id) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index != -1) {
+            admin.actualizar(index, aModificada);
+            JOptionPane.showMessageDialog(this, "Auditoría actualizada correctamente.");
+        } else {
+            JOptionPane.showMessageDialog(this, "No se encontró auditoría para actualizar.");
+        }
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
+    }
+
+
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnRegresar2btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar2btnRegresarActionPerformed

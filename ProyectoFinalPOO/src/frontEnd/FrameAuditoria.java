@@ -412,7 +412,7 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     /**

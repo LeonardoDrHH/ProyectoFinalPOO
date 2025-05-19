@@ -1,11 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package backEnd.Auditoria;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Auditoria {
+public class Auditoria implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private int id;
     private LocalDate fechaCreacion;
     private Estado estado;
@@ -60,15 +61,16 @@ public class Auditoria {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+@Override
+public String toString() {
+    return String.format(
+        "ID: %d | Fecha: %s | Estado: %s | Responsable: %s | Descripción: %s",
+        id,
+        fechaCreacion,
+        estado,
+        responsable,
+        descripcion
+    );
+}
 
-    @Override
-    public String toString() {
-        return "Auditoria{" +
-                "id=" + id +
-                ", fechaCreacion=" + fechaCreacion +
-                ", estado=" + estado +
-                ", responsable='" + responsable + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                '}';
-    }
 }
