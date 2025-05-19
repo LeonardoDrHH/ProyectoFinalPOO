@@ -3,18 +3,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package frontEnd;
-
+import backEnd.InterfaceDisenio;
 /**
  *
  * @author lrobl
  */
-public class FramePatenteFactura extends javax.swing.JFrame {
+public class FramePatenteFactura extends javax.swing.JFrame implements InterfaceDisenio {
 
     /**
      * Creates new form FramePatenteFactura
      */
     public FramePatenteFactura() {
         initComponents();
+        
+        setIcono("/Imagenes/icons8-exit-30.png", jButtonSalir);
     }
 
     /**
