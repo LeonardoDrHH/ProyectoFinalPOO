@@ -3,16 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package frontEnd;
+import backEnd.Financiamiento.AdminFinan;
+import backEnd.Financiamiento.Finan;
+import javax.swing.JOptionPane;    
+
+
 import backEnd.InterfaceDisenio;
 /**
  *
  * @author DANIEL
  */
 public class FrameFinanciamiento extends javax.swing.JFrame implements InterfaceDisenio{
-
     /**
      * Creates new form FrameFinanciamiento
      */
+    private AdminFinan admin = new AdminFinan(){
+        
+    };
     public FrameFinanciamiento() {
         this.setUndecorated(true);
         initComponents();
@@ -37,13 +44,13 @@ public class FrameFinanciamiento extends javax.swing.JFrame implements Interface
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtDescripcion = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtNom = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         btnEnviar = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
+        txtMonto = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         btnRegresar1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -64,23 +71,23 @@ public class FrameFinanciamiento extends javax.swing.JFrame implements Interface
         jLabel1.setForeground(new java.awt.Color(229, 218, 255));
         jLabel1.setText("REGISTRO DE PROYECTO");
 
-        jTextField1.setBackground(new java.awt.Color(61, 41, 99));
-        jTextField1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(229, 218, 255));
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtDescripcion.setBackground(new java.awt.Color(61, 41, 99));
+        txtDescripcion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
+        txtDescripcion.setForeground(new java.awt.Color(229, 218, 255));
+        txtDescripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(229, 218, 255));
-        jLabel2.setText("Nombre del proyecto");
+        jLabel2.setText("Nombre del proyecto y Descripcion");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(229, 218, 255));
         jLabel4.setText("Nombre de la empresa");
 
-        jTextField3.setBackground(new java.awt.Color(61, 41, 99));
-        jTextField3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(229, 218, 255));
-        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtNom.setBackground(new java.awt.Color(61, 41, 99));
+        txtNom.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
+        txtNom.setForeground(new java.awt.Color(229, 218, 255));
+        txtNom.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(229, 218, 255));
@@ -91,11 +98,16 @@ public class FrameFinanciamiento extends javax.swing.JFrame implements Interface
         btnEnviar.setForeground(new java.awt.Color(229, 218, 255));
         btnEnviar.setText("Enviar");
         btnEnviar.setBorder(null);
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarActionPerformed(evt);
+            }
+        });
 
-        jTextField4.setBackground(new java.awt.Color(61, 41, 99));
-        jTextField4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(229, 218, 255));
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtMonto.setBackground(new java.awt.Color(61, 41, 99));
+        txtMonto.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
+        txtMonto.setForeground(new java.awt.Color(229, 218, 255));
+        txtMonto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
 
         jPanel3.setBackground(new java.awt.Color(42, 35, 67));
 
@@ -168,10 +180,10 @@ public class FrameFinanciamiento extends javax.swing.JFrame implements Interface
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtDescripcion, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtNom, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtMonto, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
@@ -195,15 +207,15 @@ public class FrameFinanciamiento extends javax.swing.JFrame implements Interface
                             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
@@ -259,6 +271,27 @@ public class FrameFinanciamiento extends javax.swing.JFrame implements Interface
         System.exit(0);
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+        try {
+        String nomEmpresa = txtNom.getText();
+        String descripcion = txtDescripcion.getText();
+        double monto = Double.parseDouble(txtMonto.getText());
+
+        Finan nueva = new Finan(nomEmpresa, descripcion, monto);
+        String mensaje = admin.agregar(nueva);
+
+        JOptionPane.showMessageDialog(this, mensaje);
+
+        // Limpiar campos
+        txtNom.setText("");
+        txtDescripcion.setText("");
+        txtMonto.setText("");
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+    }
+    }//GEN-LAST:event_btnEnviarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -311,8 +344,8 @@ public class FrameFinanciamiento extends javax.swing.JFrame implements Interface
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField txtDescripcion;
+    private javax.swing.JTextField txtMonto;
+    private javax.swing.JTextField txtNom;
     // End of variables declaration//GEN-END:variables
 }

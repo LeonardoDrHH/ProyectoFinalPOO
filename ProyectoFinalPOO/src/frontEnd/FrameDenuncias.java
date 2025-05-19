@@ -282,7 +282,7 @@ public class FrameDenuncias extends javax.swing.JFrame implements InterfaceDisen
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
- try {
+    try {
         String nomEmpresa = txtNom.getText();
         String descripcion = txtDescripcion.getText();
         String correo = txtCorreo.getText();

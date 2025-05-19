@@ -1,50 +1,30 @@
 package backEnd.Financiamiento;
 
-import backEnd.CRUD.Create;
-import backEnd.CRUD.Read;
-import backEnd.CRUD.Update;
-import backEnd.CRUD.Delete;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
-public class AdminFinan implements Create<Finan>, Read<Finan>, Update<Finan>, Delete {
-    
-    private List<Finan> lista = new ArrayList<>();
-    
-    @Override
-    public String agregar(Finan obj) {
-        lista.add(obj);
-        return "Financiamiento agregado: " + obj.toString();
+public class AdminFinan {
+    private final List<Finan> lista = new ArrayList<>();
+    private final String archivo = "financiamientos.txt";
+
+    public AdminFinan() {
+        try (Scanner sc = new Scanner(new File(archivo))) {
+            while (sc.hasNextLine()) {
+                String[] p = sc.nextLine().split(";");
+                lista.add(new Finan(p[0], p[1], Double.parseDouble(p[2])));
+            }
+        } catch (Exception e) {}
     }
-    
-    @Override
+
+    public String agregar(Finan f) {
+        lista.add(f);
+        try (PrintWriter w = new PrintWriter(new FileWriter(archivo, true))) {
+            w.println(f.getNomEmpresa() + " | " + f.getNomProyec() + " | " + f.getMonto());
+        } catch (IOException e) {}
+        return "Agregado";
+    }
+
     public List<Finan> listar() {
         return lista;
-    }
-    
-    @Override
-    public boolean actualizar(int index, Finan nuevoObj) {
-        if(index >= 0 && index < lista.size()) {
-            lista.set(index, nuevoObj);
-            return true;
-        }
-        return false;
-    }
-    
-    @Override
-    public boolean eliminar(int index) {
-        if(index >= 0 && index < lista.size()) {
-            lista.remove(index);
-            return true;
-        }
-        return false;
-    }
-    
-    @Override
-    public Finan buscarPorId(int id) {
-        if(id >= 0 && id < lista.size()) {
-            return lista.get(id);
-        }
-        return null;
     }
 }
