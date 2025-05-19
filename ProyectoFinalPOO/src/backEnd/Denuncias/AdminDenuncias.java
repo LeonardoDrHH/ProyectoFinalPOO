@@ -1,9 +1,15 @@
 package backEnd.Denuncias;
 
+import backEnd.Auditoria.Auditoria;
+import backEnd.CRUD.Create;
+import backEnd.CRUD.Delete;
+import backEnd.CRUD.Read;
+import backEnd.CRUD.Update;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminDenuncias {
+public abstract class AdminDenuncias implements Create<Denuncias>, Read<Denuncias>, Update<Denuncias>, Delete {
+
     private List<Denuncias> lista = new ArrayList<>();
     
     // Agregar una denuncia

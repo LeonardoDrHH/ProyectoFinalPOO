@@ -3,13 +3,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package frontEnd;
+
+import backEnd.Denuncias.AdminDenuncias;
+import backEnd.Denuncias.Denuncias;
+import javax.swing.JOptionPane;    // Para mostrar mensajes emergentes
 import backEnd.InterfaceDisenio;
 /**
  *
  * @author DANIEL
  */
 public class FrameDenuncias extends javax.swing.JFrame implements InterfaceDisenio {
-
+    private AdminDenuncias admin = new AdminDenuncias() {
+        @Override
+        public Denuncias buscarPorId(int id) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+    };
+    
     /**
      * Creates new form FrameDenuncias
      */
@@ -35,13 +45,13 @@ public class FrameDenuncias extends javax.swing.JFrame implements InterfaceDisen
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNom = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField2 = new javax.swing.JTextField();
+        txtInfracciones = new javax.swing.JTextArea();
+        txtCorreo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtDescripcion = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         btnEnviar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -64,36 +74,41 @@ public class FrameDenuncias extends javax.swing.JFrame implements InterfaceDisen
         jLabel1.setForeground(new java.awt.Color(229, 218, 255));
         jLabel1.setText("Nombre de la empresa");
 
-        jTextField1.setBackground(new java.awt.Color(61, 41, 99));
-        jTextField1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(229, 218, 255));
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtNom.setBackground(new java.awt.Color(61, 41, 99));
+        txtNom.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
+        txtNom.setForeground(new java.awt.Color(229, 218, 255));
+        txtNom.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtNom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(229, 218, 255));
         jLabel2.setText("Descripción");
 
-        jTextArea1.setBackground(new java.awt.Color(61, 41, 99));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(229, 218, 255));
-        jTextArea1.setRows(5);
-        jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
-        jScrollPane1.setViewportView(jTextArea1);
+        txtInfracciones.setBackground(new java.awt.Color(61, 41, 99));
+        txtInfracciones.setColumns(20);
+        txtInfracciones.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
+        txtInfracciones.setForeground(new java.awt.Color(229, 218, 255));
+        txtInfracciones.setRows(5);
+        txtInfracciones.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        jScrollPane1.setViewportView(txtInfracciones);
 
-        jTextField2.setBackground(new java.awt.Color(61, 41, 99));
-        jTextField2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(229, 218, 255));
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtCorreo.setBackground(new java.awt.Color(61, 41, 99));
+        txtCorreo.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
+        txtCorreo.setForeground(new java.awt.Color(229, 218, 255));
+        txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(229, 218, 255));
         jLabel4.setText("Correo electronico");
 
-        jTextField3.setBackground(new java.awt.Color(61, 41, 99));
-        jTextField3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(229, 218, 255));
-        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtDescripcion.setBackground(new java.awt.Color(61, 41, 99));
+        txtDescripcion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
+        txtDescripcion.setForeground(new java.awt.Color(229, 218, 255));
+        txtDescripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(229, 218, 255));
@@ -104,6 +119,11 @@ public class FrameDenuncias extends javax.swing.JFrame implements InterfaceDisen
         btnEnviar.setForeground(new java.awt.Color(229, 218, 255));
         btnEnviar.setText("Enviar");
         btnEnviar.setBorder(null);
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarActionPerformed(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(42, 35, 67));
 
@@ -171,10 +191,10 @@ public class FrameDenuncias extends javax.swing.JFrame implements InterfaceDisen
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jLabel4)
                                 .addComponent(jLabel2)
-                                .addComponent(jTextField1)
+                                .addComponent(txtNom)
                                 .addComponent(jScrollPane1)
-                                .addComponent(jTextField2)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtCorreo)
+                                .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,15 +218,15 @@ public class FrameDenuncias extends javax.swing.JFrame implements InterfaceDisen
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNom, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -266,6 +286,34 @@ public class FrameDenuncias extends javax.swing.JFrame implements InterfaceDisen
         System.exit(0);
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+    try {
+        String nomEmpresa = txtNom.getText();
+        String descripcion = txtDescripcion.getText();
+        String correo = txtCorreo.getText();
+        String infracciones = txtInfracciones.getText();
+
+
+        Denuncias nuevaDenuncia = new Denuncias(nomEmpresa, descripcion, correo, infracciones);
+        String mensaje = admin.agregar(nuevaDenuncia);
+
+        JOptionPane.showMessageDialog(this, mensaje);
+
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+    }  
+        txtNom.setText("");
+        txtDescripcion.setText("");
+        txtCorreo.setText("");
+        txtInfracciones.setText("");
+           }
+    }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void txtNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -319,9 +367,9 @@ public class FrameDenuncias extends javax.swing.JFrame implements InterfaceDisen
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtDescripcion;
+    private javax.swing.JTextArea txtInfracciones;
+    private javax.swing.JTextField txtNom;
     // End of variables declaration//GEN-END:variables
 }
