@@ -90,6 +90,11 @@ public class FramePatentes extends javax.swing.JFrame implements InterfaceDiseni
         btnEnviar.setForeground(new java.awt.Color(229, 218, 255));
         btnEnviar.setText("Enviar");
         btnEnviar.setBorder(null);
+        btnEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEnviarActionPerformed(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(42, 35, 67));
 
@@ -274,6 +279,10 @@ public class FramePatentes extends javax.swing.JFrame implements InterfaceDiseni
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButtonSalirActionPerformed
+
+    private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEnviarActionPerformed
 
     /**
      * @param args the command line arguments

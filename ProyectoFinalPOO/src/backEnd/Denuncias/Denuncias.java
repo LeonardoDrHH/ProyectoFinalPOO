@@ -53,10 +53,11 @@ public class Denuncias {
         this.infracciones = infracciones;
     }
 
-    @Override
-    public String toString() {
-        return "Denuncias{" + "nomEmpresa=" + nomEmpresa + ", descripcion=" + descripcion + ", correo=" + correo + ", infracciones=" + infracciones + '}';
-    }
+@Override
+public String toString() {
+    return nomEmpresa + " | " + descripcion + " | " + correo + " | " + infracciones;
+}
+
     
     
     

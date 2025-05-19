@@ -51,4 +51,8 @@ public abstract class AdminAuditoria implements Create<Auditoria>, Read<Auditori
         }
         return resultado;
     }
+
+    public List<Auditoria> getLista() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

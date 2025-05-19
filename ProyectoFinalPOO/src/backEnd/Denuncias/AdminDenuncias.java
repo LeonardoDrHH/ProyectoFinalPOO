@@ -1,43 +1,31 @@
 package backEnd.Denuncias;
 
-import backEnd.Auditoria.Auditoria;
-import backEnd.CRUD.Create;
-import backEnd.CRUD.Delete;
-import backEnd.CRUD.Read;
-import backEnd.CRUD.Update;
+import backEnd.Denuncias.Denuncias;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AdminDenuncias implements Create<Denuncias>, Read<Denuncias>, Update<Denuncias>, Delete {
-
+public class AdminDenuncias {
     private List<Denuncias> lista = new ArrayList<>();
-    
-    // Agregar una denuncia
-    public String agregar(Denuncias obj) {
-        lista.add(obj);
-        return "Denuncia agregada: " + obj.toString();
+
+    public String agregar(Denuncias d) {
+        lista.add(d);
+        guardarEnArchivo(d); // Guarda en el archivo
+        return "Denuncia agregada y guardada.";
     }
-    
-    // Listar todas las denuncias
+
     public List<Denuncias> listar() {
         return lista;
     }
-    
-    // Actualizar denuncia en un índice específico
-    public boolean actualizar(int index, Denuncias objActualizado) {
-        if (index >= 0 && index < lista.size()) {
-            lista.set(index, objActualizado);
-            return true;
+
+    private void guardarEnArchivo(Denuncias denuncia) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("denuncias.txt", true))) {
+            writer.write(denuncia.toString());
+            writer.newLine(); // salto de línea
+        } catch (IOException e) {
+            System.out.println("Error al guardar la denuncia: " + e.getMessage());
         }
-        return false;
-    }
-    
-    // Eliminar denuncia por índice
-    public boolean eliminar(int index) {
-        if (index >= 0 && index < lista.size()) {
-            lista.remove(index);
-            return true;
-        }
-        return false;
     }
 }

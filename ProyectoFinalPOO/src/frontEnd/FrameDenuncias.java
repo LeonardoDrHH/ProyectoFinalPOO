@@ -6,23 +6,18 @@ package frontEnd;
 
 import backEnd.Denuncias.AdminDenuncias;
 import backEnd.Denuncias.Denuncias;
-import javax.swing.JOptionPane;    // Para mostrar mensajes emergentes
+import javax.swing.JOptionPane;    
 import backEnd.InterfaceDisenio;
-/**
- *
- * @author DANIEL
- */
+ 
 public class FrameDenuncias extends javax.swing.JFrame implements InterfaceDisenio {
-    private AdminDenuncias admin = new AdminDenuncias() {
-        @Override
+    /**
+     * Creates new form FrameDenuncias
+     */
+    private AdminDenuncias adminDenuncias = new AdminDenuncias() {
         public Denuncias buscarPorId(int id) {
             throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         }
     };
-    
-    /**
-     * Creates new form FrameDenuncias
-     */
     public FrameDenuncias() {
         this.setUndecorated(true);
         initComponents();
@@ -287,27 +282,26 @@ public class FrameDenuncias extends javax.swing.JFrame implements InterfaceDisen
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-    try {
+ try {
         String nomEmpresa = txtNom.getText();
         String descripcion = txtDescripcion.getText();
         String correo = txtCorreo.getText();
         String infracciones = txtInfracciones.getText();
 
-
-        Denuncias nuevaDenuncia = new Denuncias(nomEmpresa, descripcion, correo, infracciones);
-        String mensaje = admin.agregar(nuevaDenuncia);
+        Denuncias nueva = new Denuncias(nomEmpresa, descripcion, correo, infracciones);
+        String mensaje = adminDenuncias.agregar(nueva); // <-- usa la instancia 'admin'
 
         JOptionPane.showMessageDialog(this, mensaje);
 
-
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
-    }  
+        // Limpiar campos
         txtNom.setText("");
         txtDescripcion.setText("");
         txtCorreo.setText("");
         txtInfracciones.setText("");
-           }
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+    }
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void txtNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomActionPerformed
