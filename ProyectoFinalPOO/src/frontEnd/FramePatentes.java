@@ -3,13 +3,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package frontEnd;
+import backEnd.Patentes.datosFactura;
+import backEnd.Patentes.AdminPatentes;
 import backEnd.InterfaceDisenio;
+import backEnd.Patentes.FacturaPatente;
 import backEnd.Patentes.Patentes;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import javax.swing.JOptionPane;
 /**
  *
  * @author DANIEL
  */
 public class FramePatentes extends javax.swing.JFrame implements InterfaceDisenio{
+    private AdminPatentes admin = new AdminPatentes() {
+        @Override
+        public Patentes buscarPorId(int id) {
+            throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        }
+        
+    };
 
     /**
      * Creates new form FramePatentes
@@ -18,6 +33,7 @@ public class FramePatentes extends javax.swing.JFrame implements InterfaceDiseni
         this.setUndecorated(true);
         initComponents();
         setLocationRelativeTo(null);
+        
         
         setIcono("/Imagenes/icons8-exit-30.png", jButtonSalir);
 
@@ -65,7 +81,7 @@ public class FramePatentes extends javax.swing.JFrame implements InterfaceDiseni
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(229, 218, 255));
-        jLabel1.setText("Fecha de soliciutud");
+        jLabel1.setText("Fecha de solicitud");
 
         txtProducto.setBackground(new java.awt.Color(61, 41, 99));
         txtProducto.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
@@ -190,6 +206,11 @@ public class FramePatentes extends javax.swing.JFrame implements InterfaceDiseni
         txtSolicitud.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
         txtSolicitud.setForeground(new java.awt.Color(229, 218, 255));
         txtSolicitud.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtSolicitud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSolicitudActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -299,14 +320,32 @@ public class FramePatentes extends javax.swing.JFrame implements InterfaceDiseni
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void btnFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturaActionPerformed
-            String nomSolicitante = txtSolicitante.getText();
-            String nomPro = txtProducto.getText();
-            String descripcionTec = txtDescripcion.getText();
-            String fechaSoli = txtSolicitud.getText();
-    
-        new FramePatenteFactura().setVisible(true); this.dispose();
-        
+    try {
+        datosFactura datos = new datosFactura();
+
+        datos.setNomSolicitante(txtSolicitante.getText());
+        datos.setNomPro(txtProducto.getText());
+        datos.setDescripcionTec(txtDescripcion.getText());
+
+        // Obtener fecha desde campo de texto
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate fecha = LocalDate.parse(txtSolicitud.getText(), formatter);
+        Date fechaSoli = java.sql.Date.valueOf(fecha);
+        datos.setFecha(fechaSoli);
+
+        // Abrir segundo frame y pasarle el objeto
+        FramePatenteFactura frameFactura = new FramePatenteFactura(datos);
+        frameFactura.setVisible(true);
+        this.dispose();
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
+    }
     }//GEN-LAST:event_btnFacturaActionPerformed
+
+    private void txtSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSolicitudActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSolicitudActionPerformed
 
     /**
      * @param args the command line arguments
@@ -368,4 +407,5 @@ public class FramePatentes extends javax.swing.JFrame implements InterfaceDiseni
     private javax.swing.JTextArea txtSolicitante;
     private javax.swing.JTextField txtSolicitud;
     // End of variables declaration//GEN-END:variables
-}
+
+    }

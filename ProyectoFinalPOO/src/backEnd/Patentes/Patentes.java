@@ -12,8 +12,8 @@ import java.util.Date;
  */
 public class Patentes {
     private String nomPro;
-    private String descripcionTec;
-    private String nomSolicitante;
+    String descripcionTec;
+    String nomSolicitante;
     private Date fechaSoli;
 
     public Patentes(String nomPro, String descripcionTec, String nomSolicitante, Date fechaSoli) {

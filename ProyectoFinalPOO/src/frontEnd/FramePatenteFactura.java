@@ -3,24 +3,39 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package frontEnd;
+
+import backEnd.Patentes.PDFPrinter;
 import backEnd.InterfaceDisenio;
+import backEnd.Patentes.FacturaPatente;
 import frontEnd.FramePatentes;
 import backEnd.Patentes.Patentes;
+import backEnd.Patentes.datosFactura;
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import javax.swing.JOptionPane;
 /**
  *
  * @author lrobl
  */
 public class FramePatenteFactura extends javax.swing.JFrame implements InterfaceDisenio {
+    private Patentes datosBase;
+    private final datosFactura datosFactura;
 
     /**
      * Creates new form FramePatenteFactura
      */
-    public FramePatenteFactura() {
-        initComponents();
-        
+public FramePatenteFactura(datosFactura datosFactura) {
+    initComponents();
+    this.datosFactura = datosFactura;
+
         setIcono("/Imagenes/icons8-exit-30.png", jButtonSalir);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -65,6 +80,11 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
         txtHora.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
         txtHora.setForeground(new java.awt.Color(229, 218, 255));
         txtHora.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtHora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHoraActionPerformed(evt);
+            }
+        });
 
         btnFactura.setBackground(new java.awt.Color(61, 41, 99));
         btnFactura.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
@@ -160,6 +180,11 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
         txtRfc.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
         txtRfc.setForeground(new java.awt.Color(229, 218, 255));
         txtRfc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtRfc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRfcActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(229, 218, 255));
@@ -291,30 +316,23 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturaActionPerformed
-        String nomSolicitante = txtSolicitante.getText();
-    String producto = txtProducto.getText();
-    String descripcion = txtDescripcion.getText();
-
-    FacturaPatente factura = new FacturaPatente(solicitante, producto, descripcion);
-
     try {
-        Document document = new Document();
-        String nombreArchivo = "Factura_" + factura.getNumeroFactura() + ".pdf";
-        PdfWriter.getInstance(document, new FileOutputStream(nombreArchivo));
-        document.open();
+        // Obtener y guardar datos del segundo frame
+        datosFactura.setHora(txtHora.getText());
+        datosFactura.setRfc(txtRfc.getText());
+        datosFactura.setCorreo(txtCorreo.getText());
+        datosFactura.setTelefono(txtTelefono.getText());
+        datosFactura.setTotal(Double.parseDouble(txtTotal.getText()));
+        
+        PDFPrinter impresora = new PDFPrinter(datosFactura);
+        impresora.imprimirComoPDF();
 
-        document.add(new Paragraph("FACTURA DE PATENTE"));
-        document.add(new Paragraph("Número: " + factura.getNumeroFactura()));
-        document.add(new Paragraph("Fecha: " + factura.getFechaEmision()));
-        document.add(new Paragraph("Solicitante: " + factura.getNombreSolicitante()));
-        document.add(new Paragraph("Producto: " + factura.getNombreProducto()));
-        document.add(new Paragraph("Descripción Técnica: " + factura.getDescripcionTecnica()));
 
-        document.close();
+        JOptionPane.showMessageDialog(this, "Factura guardada y PDF generado.");
+        this.dispose();
 
-        JOptionPane.showMessageDialog(this, "Factura generada: " + nombreArchivo);
     } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error al generar PDF: " + e.getMessage());
+        JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
     }
     }//GEN-LAST:event_btnFacturaActionPerformed
 
@@ -325,6 +343,14 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
     private void btnRegresar1btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar1btnRegresarActionPerformed
         new FramePrincipal().setVisible(true); this.dispose();
     }//GEN-LAST:event_btnRegresar1btnRegresarActionPerformed
+
+    private void txtHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHoraActionPerformed
+
+    private void txtRfcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRfcActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRfcActionPerformed
     //knj
     /**
      * @param args the command line arguments
@@ -356,12 +382,6 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FramePatenteFactura().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

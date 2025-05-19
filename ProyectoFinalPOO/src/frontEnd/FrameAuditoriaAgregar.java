@@ -360,7 +360,7 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-           try {
+    try {
         int id = Integer.parseInt(txtId.getText());
         String responsable = txtResponsable.getText();
         Estado estado = Estado.valueOf(comboEstado.getSelectedItem().toString());
