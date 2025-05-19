@@ -4,6 +4,8 @@
  */
 package frontEnd;
 import backEnd.InterfaceDisenio;
+import frontEnd.FramePatentes;
+import backEnd.Patentes.Patentes;
 /**
  *
  * @author lrobl
@@ -31,7 +33,7 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        txtHora = new javax.swing.JTextField();
         btnFactura = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -39,13 +41,13 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
         jPanel4 = new javax.swing.JPanel();
         btnRegresar1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtRfc = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtTotal = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
@@ -59,10 +61,10 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
 
         jPanel2.setBackground(new java.awt.Color(42, 35, 67));
 
-        jTextField1.setBackground(new java.awt.Color(61, 41, 99));
-        jTextField1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(229, 218, 255));
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtHora.setBackground(new java.awt.Color(61, 41, 99));
+        txtHora.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
+        txtHora.setForeground(new java.awt.Color(229, 218, 255));
+        txtHora.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
 
         btnFactura.setBackground(new java.awt.Color(61, 41, 99));
         btnFactura.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
@@ -154,37 +156,37 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
         jLabel6.setForeground(new java.awt.Color(229, 218, 255));
         jLabel6.setText("Hora de factura");
 
-        jTextField2.setBackground(new java.awt.Color(61, 41, 99));
-        jTextField2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(229, 218, 255));
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtRfc.setBackground(new java.awt.Color(61, 41, 99));
+        txtRfc.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
+        txtRfc.setForeground(new java.awt.Color(229, 218, 255));
+        txtRfc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(229, 218, 255));
         jLabel7.setText("RFC");
 
-        jTextField3.setBackground(new java.awt.Color(61, 41, 99));
-        jTextField3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(229, 218, 255));
-        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtCorreo.setBackground(new java.awt.Color(61, 41, 99));
+        txtCorreo.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
+        txtCorreo.setForeground(new java.awt.Color(229, 218, 255));
+        txtCorreo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(229, 218, 255));
         jLabel8.setText("Correo electronico");
 
-        jTextField4.setBackground(new java.awt.Color(61, 41, 99));
-        jTextField4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(229, 218, 255));
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtTelefono.setBackground(new java.awt.Color(61, 41, 99));
+        txtTelefono.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
+        txtTelefono.setForeground(new java.awt.Color(229, 218, 255));
+        txtTelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(229, 218, 255));
         jLabel9.setText("Número de telefono");
 
-        jTextField5.setBackground(new java.awt.Color(61, 41, 99));
-        jTextField5.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(229, 218, 255));
-        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        txtTotal.setBackground(new java.awt.Color(61, 41, 99));
+        txtTotal.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
+        txtTotal.setForeground(new java.awt.Color(229, 218, 255));
+        txtTotal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(229, 218, 255));
@@ -206,15 +208,15 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRfc, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24))
         );
         jPanel2Layout.setVerticalGroup(
@@ -225,23 +227,23 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtRfc, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(btnFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
@@ -289,7 +291,31 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturaActionPerformed
-        // TODO add your handling code here:
+        String nomSolicitante = txtSolicitante.getText();
+    String producto = txtProducto.getText();
+    String descripcion = txtDescripcion.getText();
+
+    FacturaPatente factura = new FacturaPatente(solicitante, producto, descripcion);
+
+    try {
+        Document document = new Document();
+        String nombreArchivo = "Factura_" + factura.getNumeroFactura() + ".pdf";
+        PdfWriter.getInstance(document, new FileOutputStream(nombreArchivo));
+        document.open();
+
+        document.add(new Paragraph("FACTURA DE PATENTE"));
+        document.add(new Paragraph("Número: " + factura.getNumeroFactura()));
+        document.add(new Paragraph("Fecha: " + factura.getFechaEmision()));
+        document.add(new Paragraph("Solicitante: " + factura.getNombreSolicitante()));
+        document.add(new Paragraph("Producto: " + factura.getNombreProducto()));
+        document.add(new Paragraph("Descripción Técnica: " + factura.getDescripcionTecnica()));
+
+        document.close();
+
+        JOptionPane.showMessageDialog(this, "Factura generada: " + nombreArchivo);
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error al generar PDF: " + e.getMessage());
+    }
     }//GEN-LAST:event_btnFacturaActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
@@ -354,10 +380,10 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtHora;
+    private javax.swing.JTextField txtRfc;
+    private javax.swing.JTextField txtTelefono;
+    private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }
