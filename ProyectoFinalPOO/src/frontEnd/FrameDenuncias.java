@@ -259,7 +259,7 @@ public class FrameDenuncias extends javax.swing.JFrame implements InterfaceDisen
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegresar1btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar1btnRegresarActionPerformed
-        new FrameAuditoria().setVisible(true); this.dispose();
+        new FramePrincipal().setVisible(true); this.dispose();
     }//GEN-LAST:event_btnRegresar1btnRegresarActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
