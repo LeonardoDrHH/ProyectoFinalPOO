@@ -4,6 +4,8 @@
  */
 package backEnd.Patentes;
 
+import java.util.Date;
+
 /**
  *
  * @author DANIEL
@@ -12,11 +14,13 @@ public class Patentes {
     private String nomPro;
     private String descripcionTec;
     private String nomSolicitante;
+    private Date fechaSoli;
 
-    public Patentes(String nomPro, String descripcionTec, String nomSolicitante) {
+    public Patentes(String nomPro, String descripcionTec, String nomSolicitante, Date fechaSoli) {
         this.nomPro = nomPro;
         this.descripcionTec = descripcionTec;
         this.nomSolicitante = nomSolicitante;
+        this.fechaSoli = fechaSoli;
     }
 
 
@@ -44,6 +48,15 @@ public class Patentes {
     public void setNomSolicitante(String nomSolicitante) {
         this.nomSolicitante = nomSolicitante;
     }
+
+    public Date getFechaSoli() {
+        return fechaSoli;
+    }
+
+    public void setFechaSoli(Date fechaSoli) {
+        this.fechaSoli = fechaSoli;
+    }
+    
     
     @Override
     public String toString() {
@@ -52,6 +65,7 @@ public class Patentes {
         sb.append("nomPro=").append(nomPro);
         sb.append(", descripcionTec=").append(descripcionTec);
         sb.append(", nomSolicitante=").append(nomSolicitante);
+        sb.append(", Fecha Solicitud=").append(fechaSoli);
         sb.append('}');
         return sb.toString();
     }

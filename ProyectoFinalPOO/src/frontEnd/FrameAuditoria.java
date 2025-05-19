@@ -36,8 +36,6 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
         //Imagenes    
         setIcono("/Imagenes/icons8-add-new-30.png", jButtonAgregar);
         setIcono("/Imagenes/icons8-edit-32.png", jButtonEditar);
-        setIcono("/Imagenes/icons8-delete-30.png", jButtonEliminar);
-        setIcono("/Imagenes/icons8-vision-30.png", jButtonConsultar);
         setIcono("/Imagenes/icons8-exit-30.png", jButtonSalir);
         
         
@@ -48,8 +46,7 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
 
         setBordeRedondeado(btnAgregar, 8);
         setBordeRedondeado(btnEditar, 8);
-        setBordeRedondeado(btnEliminar, 8);
-        setBordeRedondeado(btnConsultar, 8);
+
         
     });
     }
@@ -69,15 +66,11 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         comboEstado = new javax.swing.JComboBox<>();
-        btnEliminar = new javax.swing.JButton();
-        btnConsultar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnAgregar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         jButtonAgregar = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
-        jButtonEliminar = new javax.swing.JButton();
-        jButtonConsultar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnRegresar1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
@@ -105,23 +98,6 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
         comboEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboEstadoActionPerformed(evt);
-            }
-        });
-
-        btnEliminar.setBackground(new java.awt.Color(61, 41, 99));
-        btnEliminar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        btnEliminar.setForeground(new java.awt.Color(229, 218, 255));
-        btnEliminar.setText("<html>Eliminar<br>Auditoría<html>");
-        btnEliminar.setBorderPainted(false);
-
-        btnConsultar.setBackground(new java.awt.Color(61, 41, 99));
-        btnConsultar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
-        btnConsultar.setForeground(new java.awt.Color(229, 218, 255));
-        btnConsultar.setText("Consultar");
-        btnConsultar.setBorderPainted(false);
-        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConsultarActionPerformed(evt);
             }
         });
 
@@ -172,24 +148,6 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
         jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEditarActionPerformed(evt);
-            }
-        });
-
-        jButtonEliminar.setBackground(new java.awt.Color(42, 35, 67));
-        jButtonEliminar.setBorderPainted(false);
-        jButtonEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEliminarActionPerformed(evt);
-            }
-        });
-
-        jButtonConsultar.setBackground(new java.awt.Color(42, 35, 67));
-        jButtonConsultar.setBorderPainted(false);
-        jButtonConsultar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButtonConsultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonConsultarActionPerformed(evt);
             }
         });
 
@@ -262,9 +220,7 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, Short.MAX_VALUE)
-                            .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(jButtonConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                            .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -273,10 +229,8 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, Short.MAX_VALUE)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -295,39 +249,22 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(11, 11, 11)
-                                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButtonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39)
-                                .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(9, 9, 9)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(jButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jButtonConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(11, 11, 11)
+                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(jButtonAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(39, 39, 39)
+                            .addComponent(jButtonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(9, 9, 9)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29))
         );
 
-        btnEliminar.getAccessibleContext().setAccessibleName("");
-        btnConsultar.getAccessibleContext().setAccessibleName("");
         btnAgregar.getAccessibleContext().setAccessibleName("");
         btnEditar.getAccessibleContext().setAccessibleName("");
 
@@ -387,14 +324,6 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
-    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonEliminarActionPerformed
-
-    private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonConsultarActionPerformed
-
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
    new FrameAuditoriaAgregar().setVisible(true); this.dispose();
     }//GEN-LAST:event_btnAgregarActionPerformed
@@ -410,10 +339,6 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButtonSalirActionPerformed
-
-    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-
-    }//GEN-LAST:event_btnConsultarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -741,16 +666,12 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnRegresar1;
     private javax.swing.JComboBox<String> comboEstado;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAgregar;
-    private javax.swing.JButton jButtonConsultar;
     private javax.swing.JButton jButtonEditar;
-    private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
