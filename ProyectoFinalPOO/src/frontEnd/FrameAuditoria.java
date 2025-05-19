@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package frontEnd;
+import backEnd.Auditoria.AdminAuditoriaBinaria;
 import backEnd.Auditoria.Auditoria;
 import java.awt.Color;
 import java.awt.Image;
@@ -21,17 +22,9 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
     /**
      * Creates new form NewJFrame
      */
-    private AdminAuditoria adminAuditoria = new AdminAuditoria() {
-    @Override
-        public Auditoria buscarPorId(int id) {
-            for (Auditoria a : getLista()) {
-                if (a.getId() == id) {
-                    return a;
-                }
-            }
-            return null;
-        }
-    };
+    private AdminAuditoria admin = new AdminAuditoriaBinaria();
+
+
 
     public FrameAuditoria() {
         this.setUndecorated(true);
@@ -431,7 +424,7 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
         List<Auditoria> auditoriasFiltradas;
 
         if (seleccion.equals("Todas")) {
-            auditoriasFiltradas = adminAuditoria.getLista();
+            auditoriasFiltradas = admin.getLista();
         } else {
             Estado estadoSeleccionado = null;
             switch (seleccion) {
@@ -445,7 +438,7 @@ public class FrameAuditoria extends javax.swing.JFrame implements InterfaceDisen
                     estadoSeleccionado = Estado.Rechazadas;
                     break;
             }
-            auditoriasFiltradas = adminAuditoria.filtrarPorEstado(estadoSeleccionado);
+            auditoriasFiltradas = admin.filtrarPorEstado(estadoSeleccionado);
         }
 
         // Mostrar en el textArea
