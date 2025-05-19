@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-//pene
+
 package backEnd.Patentes;
 
 import java.util.Date;
@@ -45,7 +45,6 @@ public class FacturaPatente extends Patentes {
     public void setHoraFactura(String horaFactura) {
         this.horaFactura = horaFactura;
     }
-    
     
     
 
