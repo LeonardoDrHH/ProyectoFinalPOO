@@ -14,12 +14,19 @@ public class FacturaPatente extends Patentes {
     private static int contador = 1;
     private int numeroFactura;
     private String horaFactura;
+    private String RFC;
+    private String correo;
+    private String numTele;
+    private double costoTotal;
 
-    public FacturaPatente(String nomPro, String descripcionTec, String nomSolicitante) {
-        super(nomPro, descripcionTec, nomSolicitante, new Date()); // Genera automáticamente la fecha actual
-        this.numeroFactura = contador++; 
-        this.horaFactura = obtenerHoraActual(); // Captura la hora actual
-        
+    public FacturaPatente(int numeroFactura, String horaFactura, String RFC, String correo, String numTele, double costoTotal, String nomPro, String descripcionTec, String nomSolicitante, Date fechaSoli) {
+        super(nomPro, descripcionTec, nomSolicitante, fechaSoli);
+        this.numeroFactura = numeroFactura;
+        this.horaFactura = horaFactura;
+        this.RFC = RFC;
+        this.correo = correo;
+        this.numTele = numTele;
+        this.costoTotal = costoTotal;
     }
 
     public static int getContador() {
@@ -45,9 +52,39 @@ public class FacturaPatente extends Patentes {
     public void setHoraFactura(String horaFactura) {
         this.horaFactura = horaFactura;
     }
-    
-    
 
+    public String getRFC() {
+        return RFC;
+    }
+
+    public void setRFC(String RFC) {
+        this.RFC = RFC;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getNumTele() {
+        return numTele;
+    }
+
+    public void setNumTele(String numTele) {
+        this.numTele = numTele;
+    }
+
+    public double getCostoTotal() {
+        return costoTotal;
+    }
+
+    public void setCostoTotal(double costoTotal) {
+        this.costoTotal = costoTotal;
+    }
+    
     private String obtenerHoraActual() {
         SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
         return formatoHora.format(new Date());
@@ -61,13 +98,9 @@ public class FacturaPatente extends Patentes {
 
     @Override
     public String toString() {
-        return "FacturaPatente{" +
-                "\n Número de factura: " + numeroFactura +
-                "\n Fecha y hora de solicitud: " + super.getFechaSoli() + " " + horaFactura +
-                "\n Nombre solicitante: " + getNomSolicitante() +
-                "\n Nombre producto: " + getNomPro() +
-                "\n Descripción técnica: " + getDescripcionTec() +
-                "\n" + '}';
+        return "FacturaPatente{" + "numeroFactura=" + numeroFactura + ", horaFactura=" + horaFactura + ", RFC=" + RFC + ", correo=" + correo + ", numTele=" + numTele + ", costoTotal=" + costoTotal + '}';
     }
+
+
 }
     
