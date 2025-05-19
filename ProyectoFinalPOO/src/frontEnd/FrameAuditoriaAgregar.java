@@ -68,7 +68,7 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
         btnGuardar = new javax.swing.JButton();
         jLabelGuardar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtDescripcion = new javax.swing.JTextArea();
         txtResponsable = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jButtonSalir = new javax.swing.JButton();
@@ -167,14 +167,19 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
         btnGuardar.setForeground(new java.awt.Color(229, 218, 255));
         btnGuardar.setText("Guardar");
         btnGuardar.setBorderPainted(false);
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
-        jTextArea1.setBackground(new java.awt.Color(61, 41, 99));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(229, 218, 255));
-        jTextArea1.setRows(5);
-        jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
-        jScrollPane1.setViewportView(jTextArea1);
+        txtDescripcion.setBackground(new java.awt.Color(61, 41, 99));
+        txtDescripcion.setColumns(20);
+        txtDescripcion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
+        txtDescripcion.setForeground(new java.awt.Color(229, 218, 255));
+        txtDescripcion.setRows(5);
+        txtDescripcion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(229, 218, 255)));
+        jScrollPane1.setViewportView(txtDescripcion);
 
         txtResponsable.setBackground(new java.awt.Color(61, 41, 99));
         txtResponsable.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
@@ -301,9 +306,7 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
                         .addGap(56, 56, 56)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(24, 24, 24)))))
+                            .addComponent(jLabel3))))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -355,6 +358,31 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jButtonSalirActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+           try {
+        int id = Integer.parseInt(txtId.getText());
+        String responsable = txtResponsable.getText();
+        Estado estado = Estado.valueOf(comboEstado.getSelectedItem().toString());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate fechaCreacion = LocalDate.parse(txtFecha.getText(), formatter);
+        String descripcion = txtDescripcion.getText();
+
+        Auditoria nuevaAuditoria = new Auditoria(id, fechaCreacion, estado ,responsable, descripcion);
+        String mensaje = admin.agregar(nuevaAuditoria);
+
+        JOptionPane.showMessageDialog(this, mensaje);
+
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+    }  
+        txtId.setText("");
+        txtResponsable.setText("");
+        comboEstado.setSelectedIndex(0); // o -1 si no quieres nada seleccionado
+        txtFecha.setText("");
+        txtDescripcion.setText("");
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -409,7 +437,7 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea txtDescripcion;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtResponsable;

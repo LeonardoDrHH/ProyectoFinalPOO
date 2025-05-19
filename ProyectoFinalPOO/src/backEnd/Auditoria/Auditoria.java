@@ -4,16 +4,15 @@
  */
 package backEnd.Auditoria;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Auditoria {
     private int id;
-    private Date fechaCreacion;
+    private LocalDate fechaCreacion;
     private Estado estado;
     private String responsable;
     private String descripcion;
 
-    public Auditoria(int id, Date minusDays, Estado estado, String responsable, String descripcion) {
+    public Auditoria(int id, LocalDate fechaCreacion, Estado estado, String responsable, String descripcion) {
         this.id = id;
         this.fechaCreacion = fechaCreacion;
         this.estado = estado;
@@ -30,11 +29,11 @@ public class Auditoria {
         this.id = id;
     }
 
-    public Date getFechaCreacion() {
+    public LocalDate getFechaCreacion() {
         return fechaCreacion;
     }
 
-    public void setFechaCreacion(Date fechaCreacion) {
+    public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
 
