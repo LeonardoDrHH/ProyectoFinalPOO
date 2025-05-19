@@ -5,46 +5,21 @@
 package backEnd.Patentes;
 
 import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-/**
- *
- * @author lrobl
- */
 public class FacturaPatente extends Patentes {
     private static int contador = 1;
     private int numeroFactura;
     private String horaFactura;
-    private String nombreSolicitante;
-    private String nombreProducto;
-    private String descripcionTecnica;
 
-    public FacturaPatente(String nomPro, String descripcionTec, String nomSolicitante, Date fechaSoli) {
-        super(nomPro, descripcionTec, nomSolicitante, fechaSoli);
+    public FacturaPatente(String nomPro, String descripcionTec, String nomSolicitante) {
+        super(nomPro, descripcionTec, nomSolicitante, new Date()); // Genera automáticamente la fecha actual
+        this.numeroFactura = contador++; 
+        this.horaFactura = obtenerHoraActual(); // Captura la hora actual
+        
     }
 
-    public FacturaPatente(int numeroFactura, String horaFactura, String nombreSolicitante, String nombreProducto, String descripcionTecnica, String nomPro, String descripcionTec, String nomSolicitante, Date fechaSoli) {
-        super(nomPro, descripcionTec, nomSolicitante, fechaSoli);
-        this.numeroFactura = numeroFactura;
-        this.horaFactura = horaFactura;
-        this.nombreSolicitante = nombreSolicitante;
-        this.nombreProducto = nombreProducto;
-        this.descripcionTecnica = descripcionTecnica;
-    }
-    
-    
-
-
-
-    
-    public String getHoraFactura() {
-        return horaFactura;
-    }
-
-    public void setHoraFactura(String horaFactura) {
-        this.horaFactura = horaFactura;
-    }
-
-    
     public static int getContador() {
         return contador;
     }
@@ -61,40 +36,37 @@ public class FacturaPatente extends Patentes {
         this.numeroFactura = numeroFactura;
     }
 
-    public String getNombreSolicitante() {
-        return nombreSolicitante;
+    public String getHoraFactura() {
+        return horaFactura;
     }
 
-    public void setNombreSolicitante(String nombreSolicitante) {
-        this.nombreSolicitante = nombreSolicitante;
+    public void setHoraFactura(String horaFactura) {
+        this.horaFactura = horaFactura;
+    }
+    
+    
+    
+
+    private String obtenerHoraActual() {
+        SimpleDateFormat formatoHora = new SimpleDateFormat("HH:mm:ss");
+        return formatoHora.format(new Date());
     }
 
-    public String getNombreProducto() {
-        return nombreProducto;
-    }
-
-    public void setNombreProducto(String nombreProducto) {
-        this.nombreProducto = nombreProducto;
-    }
-
-    public String getDescripcionTecnica() {
-        return descripcionTecnica;
-    }
-
-    public void setDescripcionTecnica(String descripcionTecnica) {
-        this.descripcionTecnica = descripcionTecnica;
+    @Override
+    public Date getFechaSoli() {
+        System.out.println("Fecha de solicitud con hora: " + super.getFechaSoli() + " " + horaFactura);
+        return super.getFechaSoli();
     }
 
     @Override
     public String toString() {
         return "FacturaPatente{" +
                 "\n Número de factura: " + numeroFactura +
-                "\n Hora de factura: " + horaFactura +
-                "\n Nombre solicitante: " + nombreSolicitante +
-                "\n Nombre producto: " + nombreProducto +
-                "\n Descripcion tecnica: " + descripcionTecnica +
+                "\n Fecha y hora de solicitud: " + super.getFechaSoli() + " " + horaFactura +
+                "\n Nombre solicitante: " + getNomSolicitante() +
+                "\n Nombre producto: " + getNomPro() +
+                "\n Descripción técnica: " + getDescripcionTec() +
                 "\n" + '}';
     }
-    
-    
 }
+    
