@@ -112,7 +112,7 @@ public class FrameDenuncias extends javax.swing.JFrame implements InterfaceDisen
         btnEnviar.setBackground(new java.awt.Color(61, 41, 99));
         btnEnviar.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         btnEnviar.setForeground(new java.awt.Color(229, 218, 255));
-        btnEnviar.setText("Enviar");
+        btnEnviar.setText("Enviar denuncia");
         btnEnviar.setBorder(null);
         btnEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
