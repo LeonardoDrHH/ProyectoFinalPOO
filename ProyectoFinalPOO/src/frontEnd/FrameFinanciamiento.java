@@ -78,7 +78,7 @@ public class FrameFinanciamiento extends javax.swing.JFrame implements Interface
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(229, 218, 255));
-        jLabel2.setText("Nombre del proyecto y Descripcion");
+        jLabel2.setText("Nombre del proyecto y descripcion");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(229, 218, 255));

@@ -98,7 +98,7 @@ public class FrameDenuncias extends javax.swing.JFrame implements InterfaceDisen
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(229, 218, 255));
-        jLabel4.setText("Correo electronico");
+        jLabel4.setText("Correo electrónico");
 
         txtDescripcion.setBackground(new java.awt.Color(61, 41, 99));
         txtDescripcion.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N

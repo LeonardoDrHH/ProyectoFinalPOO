@@ -199,7 +199,7 @@ public FramePatenteFactura(datosFactura datosFactura) {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(229, 218, 255));
-        jLabel8.setText("Correo electronico");
+        jLabel8.setText("Correo electrónico");
 
         txtTelefono.setBackground(new java.awt.Color(61, 41, 99));
         txtTelefono.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
@@ -208,7 +208,7 @@ public FramePatenteFactura(datosFactura datosFactura) {
 
         jLabel9.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(229, 218, 255));
-        jLabel9.setText("Número de telefono");
+        jLabel9.setText("Número de teléfono");
 
         txtTotal.setBackground(new java.awt.Color(61, 41, 99));
         txtTotal.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N

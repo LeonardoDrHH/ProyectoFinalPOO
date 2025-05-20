@@ -128,7 +128,7 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 17)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(229, 218, 255));
-        jLabel2.setText("Estado de la auditoria:");
+        jLabel2.setText("Estado de la auditoría:");
 
         comboEstado.setBackground(new java.awt.Color(61, 41, 99));
         comboEstado.setFont(new java.awt.Font("Segoe UI Semibold", 0, 15)); // NOI18N
