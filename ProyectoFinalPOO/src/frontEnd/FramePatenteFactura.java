@@ -318,24 +318,29 @@ public FramePatenteFactura(datosFactura datosFactura) {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturaActionPerformed
-    try {
-        // Obtener y guardar datos del segundo frame
-        datosFactura.setHora(txtHora.getText());
-        datosFactura.setRfc(txtRfc.getText());
-        datosFactura.setCorreo(txtCorreo.getText());
-        datosFactura.setTelefono(txtTelefono.getText());
-        datosFactura.setTotal(Double.parseDouble(txtTotal.getText()));
-        
-        PDFPrinter impresora = new PDFPrinter(datosFactura);
-        impresora.imprimirComoPDF();
+try {
 
+    datosFactura.setHora(txtHora.getText());
+    datosFactura.setRfc(txtRfc.getText());
+    datosFactura.setCorreo(txtCorreo.getText());
+    datosFactura.setTelefono(txtTelefono.getText());
+    datosFactura.setTotal(Double.parseDouble(txtTotal.getText()));
 
-        JOptionPane.showMessageDialog(this, "Factura guardada y PDF generado.");
-        this.dispose();
+    PDFPrinter impresora = new PDFPrinter(datosFactura);
+    impresora.imprimirComoPDF();
 
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
-    }
+    JOptionPane.showMessageDialog(this, "Factura guardada y PDF generado.");
+    this.dispose();
+
+} catch (NumberFormatException e) {
+    JOptionPane.showMessageDialog(this, "Error: El total debe ser un número válido.");
+} catch (NullPointerException e) {
+    JOptionPane.showMessageDialog(this, "Error: Hay campos vacíos o nulos.");
+} catch (IllegalArgumentException e) {
+    JOptionPane.showMessageDialog(this, "Error: Argumento inválido en los datos ingresados.");
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
+}
     }//GEN-LAST:event_btnFacturaActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed

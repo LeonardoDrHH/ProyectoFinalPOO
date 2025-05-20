@@ -11,6 +11,7 @@ import backEnd.Patentes.Patentes;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Date;
 import javax.swing.JOptionPane;
 /**
@@ -321,26 +322,32 @@ public class FramePatentes extends javax.swing.JFrame implements InterfaceDiseni
 
     private void btnFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFacturaActionPerformed
     try {
-        datosFactura datos = new datosFactura();
+    datosFactura datos = new datosFactura();
 
-        datos.setNomSolicitante(txtSolicitante.getText());
-        datos.setNomPro(txtProducto.getText());
-        datos.setDescripcionTec(txtDescripcion.getText());
+    datos.setNomSolicitante(txtSolicitante.getText());
+    datos.setNomPro(txtProducto.getText());
+    datos.setDescripcionTec(txtDescripcion.getText());
 
-        // Obtener fecha desde campo de texto
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate fecha = LocalDate.parse(txtSolicitud.getText(), formatter);
-        Date fechaSoli = java.sql.Date.valueOf(fecha);
-        datos.setFecha(fechaSoli);
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    LocalDate fecha = LocalDate.parse(txtSolicitud.getText(), formatter);
+    Date fechaSoli = java.sql.Date.valueOf(fecha);
+    datos.setFecha(fechaSoli);
 
-        // Abrir segundo frame y pasarle el objeto
-        FramePatenteFactura frameFactura = new FramePatenteFactura(datos);
-        frameFactura.setVisible(true);
-        this.dispose();
 
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
-    }
+    FramePatenteFactura frameFactura = new FramePatenteFactura(datos);
+    frameFactura.setVisible(true);
+    this.dispose();
+
+} catch (DateTimeParseException e) {
+    JOptionPane.showMessageDialog(this, "Error: Formato de fecha incorrecto (usa dd/MM/yyyy).");
+} catch (NullPointerException e) {
+    JOptionPane.showMessageDialog(this, "Error: Hay campos vacíos o nulos.");
+} catch (IllegalArgumentException e) {
+    JOptionPane.showMessageDialog(this, "Error: Argumento inválido en los datos ingresados.");
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
+}
+
     }//GEN-LAST:event_btnFacturaActionPerformed
 
     private void txtSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSolicitudActionPerformed

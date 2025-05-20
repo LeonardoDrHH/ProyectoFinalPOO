@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import backEnd.InterfaceDisenio;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 /**
  *
  * @author lrobl
@@ -359,28 +360,36 @@ public class FrameAuditoriaAgregar extends javax.swing.JFrame implements Interfa
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-    try {
-        int id = Integer.parseInt(txtId.getText());
-        String responsable = txtResponsable.getText();
-        Estado estado = Estado.valueOf(comboEstado.getSelectedItem().toString());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate fechaCreacion = LocalDate.parse(txtFecha.getText(), formatter);
-        String descripcion = txtDescripcion.getText();
+try {
+    int id = Integer.parseInt(txtId.getText());
+    String responsable = txtResponsable.getText();
+    Estado estado = Estado.valueOf(comboEstado.getSelectedItem().toString());
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    LocalDate fechaCreacion = LocalDate.parse(txtFecha.getText(), formatter);
+    String descripcion = txtDescripcion.getText();
 
-        Auditoria nuevaAuditoria = new Auditoria(id, fechaCreacion, estado ,responsable, descripcion);
-        String mensaje = admin.agregar(nuevaAuditoria);
+    Auditoria nuevaAuditoria = new Auditoria(id, fechaCreacion, estado ,responsable, descripcion);
+    String mensaje = admin.agregar(nuevaAuditoria);
 
-        JOptionPane.showMessageDialog(this, mensaje);
+    JOptionPane.showMessageDialog(this, mensaje);
 
+} catch (NumberFormatException e) {
+    JOptionPane.showMessageDialog(this, "Error: ID debe ser un número entero.");
+} catch (DateTimeParseException e) {
+    JOptionPane.showMessageDialog(this, "Error: La fecha debe tener el formato dd/MM/yyyy.");
+} catch (IllegalArgumentException e) {
+    JOptionPane.showMessageDialog(this, "Error: Estado no válido seleccionado.");
+} catch (NullPointerException e) {
+    JOptionPane.showMessageDialog(this, "Error: Hay campos vacíos o nulos.");
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(this, "Error inesperado: " + e.getMessage());
+}  
+txtId.setText("");
+txtResponsable.setText("");
+comboEstado.setSelectedIndex(0); 
+txtFecha.setText("");
+txtDescripcion.setText("");
 
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
-    }  
-        txtId.setText("");
-        txtResponsable.setText("");
-        comboEstado.setSelectedIndex(0); // o -1 si no quieres nada seleccionado
-        txtFecha.setText("");
-        txtDescripcion.setText("");
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**

@@ -13,6 +13,7 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.*;
@@ -389,7 +390,7 @@ try {
             txtResponsable.setEnabled(true);
             txtDescripcion.setEnabled(true);
             comboEstado.setEnabled(true);
-            // La fecha normalmente no se edita, si quieres que sí, pon true
+            // La fecha normalmente no se edita
             txtFecha.setEnabled(false);
 
             // Habilitar botón guardar
@@ -414,36 +415,43 @@ try {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-    try {
-        int id = Integer.parseInt(txtId.getText());
-        String responsable = txtResponsable.getText();
-        String descripcion = txtDescripcion.getText();
-        Estado estado = Estado.valueOf(comboEstado.getSelectedItem().toString());
-        LocalDate fecha = LocalDate.parse(txtFecha.getText()); // Ajusta formato si es necesario
+try {
+    int id = Integer.parseInt(txtId.getText());
+    String responsable = txtResponsable.getText();
+    String descripcion = txtDescripcion.getText();
+    Estado estado = Estado.valueOf(comboEstado.getSelectedItem().toString());
+    LocalDate fecha = LocalDate.parse(txtFecha.getText());
 
-        Auditoria aModificada = new Auditoria(id, fecha, estado, responsable, descripcion);
+    Auditoria aModificada = new Auditoria(id, fecha, estado, responsable, descripcion);
 
-        // Buscar índice para actualizar
-        List<Auditoria> lista = admin.listar();
-        int index = -1;
-        for (int i = 0; i < lista.size(); i++) {
-            if (lista.get(i).getId() == id) {
-                index = i;
-                break;
-            }
+    // Buscar indice para actualizar
+    List<Auditoria> lista = admin.listar();
+    int index = -1;
+    for (int i = 0; i < lista.size(); i++) {
+        if (lista.get(i).getId() == id) {
+            index = i;
+            break;
         }
-
-        if (index != -1) {
-            admin.actualizar(index, aModificada);
-            JOptionPane.showMessageDialog(this, "Auditoría actualizada correctamente.");
-        } else {
-            JOptionPane.showMessageDialog(this, "No se encontró auditoría para actualizar.");
-        }
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
     }
 
+    if (index != -1) {
+        admin.actualizar(index, aModificada);
+        JOptionPane.showMessageDialog(this, "Auditoría actualizada correctamente.");
+    } else {
+        JOptionPane.showMessageDialog(this, "No se encontró auditoría para actualizar.");
+    }
 
+} catch (NumberFormatException e) {
+    JOptionPane.showMessageDialog(this, "Error: ID debe ser un número entero.");
+} catch (DateTimeParseException e) {
+    JOptionPane.showMessageDialog(this, "Error: Formato de fecha incorrecto).");
+} catch (IllegalArgumentException e) {
+    JOptionPane.showMessageDialog(this, "Error: Estado no válido o argumento incorrecto.");
+} catch (NullPointerException e) {
+    JOptionPane.showMessageDialog(this, "Error: Hay campos vacíos o nulos.");
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
+}
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnRegresar2btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar2btnRegresarActionPerformed

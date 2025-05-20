@@ -272,24 +272,30 @@ public class FrameFinanciamiento extends javax.swing.JFrame implements Interface
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        try {
-        String nomEmpresa = txtNom.getText();
-        String descripcion = txtDescripcion.getText();
-        double monto = Double.parseDouble(txtMonto.getText());
+    try {
+    String nomEmpresa = txtNom.getText();
+    String descripcion = txtDescripcion.getText();
+    double monto = Double.parseDouble(txtMonto.getText());
 
-        Finan nueva = new Finan(nomEmpresa, descripcion, monto);
-        String mensaje = admin.agregar(nueva);
+    Finan nueva = new Finan(nomEmpresa, descripcion, monto);
+    String mensaje = admin.agregar(nueva);
 
-        JOptionPane.showMessageDialog(this, mensaje);
+    JOptionPane.showMessageDialog(this, mensaje);
 
-        // Limpiar campos
-        txtNom.setText("");
-        txtDescripcion.setText("");
-        txtMonto.setText("");
+    // Limpiar campos
+    txtNom.setText("");
+    txtDescripcion.setText("");
+    txtMonto.setText("");
 
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
-    }
+} catch (NumberFormatException e) {
+    JOptionPane.showMessageDialog(this, "Error: El monto debe ser un número válido.");
+} catch (NullPointerException e) {
+    JOptionPane.showMessageDialog(this, "Error: Hay campos vacíos o nulos.");
+} catch (IllegalArgumentException e) {
+    JOptionPane.showMessageDialog(this, "Error: Argumento inválido en los datos ingresados.");
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(this, "Error inesperado: " + e.getMessage());
+}
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     /**

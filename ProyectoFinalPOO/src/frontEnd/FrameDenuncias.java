@@ -282,26 +282,30 @@ public class FrameDenuncias extends javax.swing.JFrame implements InterfaceDisen
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-    try {
-        String nomEmpresa = txtNom.getText();
-        String descripcion = txtDescripcion.getText();
-        String correo = txtCorreo.getText();
-        String infracciones = txtInfracciones.getText();
+try {
+    String nomEmpresa = txtNom.getText();
+    String descripcion = txtDescripcion.getText();
+    String correo = txtCorreo.getText();
+    String infracciones = txtInfracciones.getText();
 
-        Denuncias nueva = new Denuncias(nomEmpresa, descripcion, correo, infracciones);
-        String mensaje = adminDenuncias.agregar(nueva); // <-- usa la instancia 'admin'
+    Denuncias nueva = new Denuncias(nomEmpresa, descripcion, correo, infracciones);
+    String mensaje = adminDenuncias.agregar(nueva);
 
-        JOptionPane.showMessageDialog(this, mensaje);
+    JOptionPane.showMessageDialog(this, mensaje);
 
-        // Limpiar campos
-        txtNom.setText("");
-        txtDescripcion.setText("");
-        txtCorreo.setText("");
-        txtInfracciones.setText("");
+    // limpiar campos
+    txtNom.setText("");
+    txtDescripcion.setText("");
+    txtCorreo.setText("");
+    txtInfracciones.setText("");
 
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
-    }
+} catch (NullPointerException e) {
+    JOptionPane.showMessageDialog(this, "Error: Alguno de los campos está vacío o nulo.");
+} catch (IllegalArgumentException e) {
+    JOptionPane.showMessageDialog(this, "Error: Argumento inválido en los datos ingresados.");
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(this, "Error inesperado: " + e.getMessage());
+}
     }//GEN-LAST:event_btnEnviarActionPerformed
 
     private void txtNomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomActionPerformed
