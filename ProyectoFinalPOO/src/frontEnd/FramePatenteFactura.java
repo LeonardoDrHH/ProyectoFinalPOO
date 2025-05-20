@@ -31,7 +31,9 @@ public class FramePatenteFactura extends javax.swing.JFrame implements Interface
      * Creates new form FramePatenteFactura
      */
 public FramePatenteFactura(datosFactura datosFactura) {
-    initComponents();
+        this.setUndecorated(true);
+        initComponents();
+        setLocationRelativeTo(null);
     this.datosFactura = datosFactura;
 
         setIcono("/Imagenes/icons8-exit-30.png", jButtonSalir);
@@ -89,7 +91,7 @@ public FramePatenteFactura(datosFactura datosFactura) {
         btnFactura.setBackground(new java.awt.Color(61, 41, 99));
         btnFactura.setFont(new java.awt.Font("Segoe UI Semibold", 0, 16)); // NOI18N
         btnFactura.setForeground(new java.awt.Color(229, 218, 255));
-        btnFactura.setText("Generar factura");
+        btnFactura.setText("Imprimir factura");
         btnFactura.setBorder(null);
         btnFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -341,7 +343,7 @@ public FramePatenteFactura(datosFactura datosFactura) {
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void btnRegresar1btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar1btnRegresarActionPerformed
-        new FramePrincipal().setVisible(true); this.dispose();
+        new FramePatentes().setVisible(true); this.dispose();
     }//GEN-LAST:event_btnRegresar1btnRegresarActionPerformed
 
     private void txtHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoraActionPerformed
